@@ -31,7 +31,7 @@ public:
             _min = elem;
         }
 
-        else if (_max < elem){
+        if (_max < elem){
             _max = elem;
         }
     }

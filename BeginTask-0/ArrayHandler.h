@@ -18,7 +18,8 @@ public:
 
     void AppendElem(T elem) {
         if (count == _size){
-            T* array_2 = new T [_size * 10];
+            _size *= 10; 
+            T* array_2 = new T [_size];
             for (size_t i = 0; i < count; i ++){
                 array_2[i] = _array[i];
             }

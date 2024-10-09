@@ -1,0 +1,2 @@
+C:\Users\user\Downloads\x86_64-13.2.0-release-win32-seh-msvcrt-rt_v11-rev0\mingw64\bin\ar.exe qc ..\..\..\lib\libgtest.a "CMakeFiles/gtest.dir/src/gtest-all.cc.obj"
+C:\Users\user\Downloads\x86_64-13.2.0-release-win32-seh-msvcrt-rt_v11-rev0\mingw64\bin\ranlib.exe ..\..\..\lib\libgtest.a

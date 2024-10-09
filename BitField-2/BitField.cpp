@@ -45,6 +45,67 @@ size_t BitField::GetMemIndex(size_t n) const {
 }
 
 uint8_t BitField::GetBit(size_t n) const {
+    if (n >= _sizeBit){
+        throw "PSHNH Bit out of range";
+    }
+    return ((_mem[GetMemIndex(n)] & GetMask(n)) != 0);
+}
 
+void BitField::ClrBit(size_t n){
+    uint16_t mask = GetMask(n);
+    mask = ~mask;
+    _mem[GetMemIndex(n)] &= mask;
+}
+
+BitField BitField::operator|(const BitField& tmp){ //размеры битовых полей могут быть разными
+    BitField B(*this);
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] |= tmp._mem[i];
+    }
+    return B;
+}
+
+BitField BitField::operator&(const BitField& tmp){ //размеры битовых полей могут быть разными
+    BitField B(*this);
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] &= tmp._mem[i];
+    }
+    return B;
+}
+
+BitField BitField::operator^(const BitField& tmp){ //размеры битовых полей могут быть разными
+    BitField B(*this);
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] ^= tmp._mem[i];
+    }
+    return B;
+}
+
+BitField BitField::operator^(const BitField& tmp){ //размеры битовых полей могут быть разными
+    BitField B(*this);
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] ^= tmp._mem[i];
+    }
+    return B;
+}
+
+bool BitField::operator==(const BitField& tmp){
+    if(_sizeBit != tmp._sizeBit){
+        return false;
+    }
+    for(size_t i = 0; i < _memSize; i++){
+        if(_mem[i] != tmp._mem[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+BitField BitField::operator~(){ //размеры битовых полей могут быть разными
+    BitField copy(*this);
+    for (size_t i=0; i < _memSize; i++){
+        copy._mem[i] = ~copy._mem[i];
+    }
+    return copy;
 }
 

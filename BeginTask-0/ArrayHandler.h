@@ -1,4 +1,4 @@
-//Andrey Chert!
+//Andrey Chert!!
 #include <cstring>
 
 template<typename T>

@@ -28,8 +28,13 @@ public:
         }
         _array[count++] = elem;
         
-        _minT = (elem < _minT) ? elem : _minT;
-        _maxT = (elem > _maxT) ? elem : _maxT;
+        if (_min > elem){
+            _min = elem;
+        }
+
+        if (_max < elem){
+            _max = elem;
+        }
     }
 
     bool IsContains(T elem) {

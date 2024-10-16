@@ -1,12 +1,16 @@
 #include <iostream>
+#include "Set.h"
 
 
 int main() {
-    uint16_t a = 1;
-    //a = a << 10;
-    std::cout << a << std::endl;
-    uint8_t b = 0;
-    b = static_cast<uint8_t>(a);
-    std::cout << static_cast<uint32_t>(b) << std::endl;
-    return 0;
+    BitField mass(26);
+    Set array(mass);
+    for (size_t i = 1; i < 26; i++){
+        array.InsertElem(i);
+    }
+    std::vector res = array.GetPrimary();
+
+    for (size_t i = 0; i < res.size(); i ++){
+        std::cout <<res[i] << " ";
+    }
 }

@@ -1,4 +1,5 @@
 #include "BitField.h"
+#include <cstring>
 
 
 size_t BitField::GetMemIndex(size_t n) const{
@@ -15,16 +16,18 @@ BitField::BitField(size_t len) {
     _sizeBit = len;
     _memSize = (len / (8 * sizeof(uint16_t))) + (len % (8 * sizeof(uint16_t)) != 0);
     _mem = new uint16_t[_memSize];
-    for (size_t i = 0; i < _memSize; ++i)
-        _mem[i] = 0;
+    std::memset(_mem,0, _memSize);
+    // for (size_t i = 0; i < _memSize; ++i)
+    //     _mem[i] = 0;
 }
 
 BitField::BitField(const BitField& tmp) {
     _sizeBit = tmp._sizeBit;
     _memSize = tmp._memSize;
     _mem = new uint16_t[_memSize];
-    for (size_t i = 0; i < _memSize; ++i)
-        _mem[i] = tmp._mem[i];
+    std::memcpy(_mem, tmp._mem, _memSize*sizeof(size_t));
+    // for (size_t i = 0; i < _memSize; ++i)
+    //     _mem[i] = tmp._mem[i];
 }
 
 BitField& BitField::operator=(const BitField& tmp) {
@@ -34,8 +37,9 @@ BitField& BitField::operator=(const BitField& tmp) {
         _memSize = tmp._memSize;
         _mem = new uint16_t[_memSize];
     }
-    for (size_t i = 0; i < _memSize; ++i)
-        _mem[i] = tmp._mem[i];
+    std::memcpy(_mem, tmp._mem, _memSize*sizeof(size_t));
+    // for (size_t i = 0; i < _memSize; ++i)
+    //     _mem[i] = tmp._mem[i];
     return *this;
 }
     
@@ -60,24 +64,27 @@ uint8_t BitField::GetBit(size_t n) const {
 }
 BitField BitField::operator|(const BitField& tmp) {
     BitField B(*this);
-    for (size_t i=0; i < _memSize; i++){
-        B._mem[i] |= tmp._mem[i];
-    }
+    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
+    // for (size_t i=0; i < _memSize; i++){
+    //     B._mem[i] |= tmp._mem[i];
+    // }
     return B;
 }
 
 BitField BitField::operator&(const BitField& tmp) {
     BitField B(*this);
-    for (size_t i=0; i < _memSize; i++){
-        B._mem[i] &= tmp._mem[i];
-    }
+    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
+    // for (size_t i=0; i < _memSize; i++){
+    //     B._mem[i] &= tmp._mem[i];
+    // }
     return B;
 }
 BitField BitField::operator^(const BitField& tmp) {
     BitField B(*this);
-    for (size_t i=0; i < _memSize; i++){
-        B._mem[i] ^= tmp._mem[i];
-    }
+    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
+    //for (size_t i=0; i < _memSize; i++){
+    //     B._mem[i] ^= tmp._mem[i];
+    // }
     return B;
 }
 

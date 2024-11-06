@@ -16,8 +16,8 @@ public:
     BitField& operator=(const BitField& tmp);
     
     size_t GetLength() const{
-        _sizeBit;
-    };
+        return _sizeBit;
+    }
     void SetBit(size_t n);
     void ClrBit(size_t n);
     uint8_t GetBit(size_t n) const;

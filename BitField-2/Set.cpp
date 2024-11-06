@@ -34,7 +34,7 @@ std::vector<uint64_t> Set::GetPrimary(){
     Set tmp(*this);
     size_t n = GetMaxPower(), qn = static_cast<size_t> (sqrt (n)) + 1;
     
-    for (size_t i = 2; i < qn; i ++){
+    for (size_t i = 1; i < qn; i ++){
         if (i != 0){
             for (size_t j = i + i; j < n; j += i){
                 tmp._bitField.ClrBit(j);
@@ -42,7 +42,7 @@ std::vector<uint64_t> Set::GetPrimary(){
             }
     }
     std::vector<size_t> res;
-    for (size_t i = 2; i < n; i++){
+    for (size_t i = 1; i < n; i++){
         if (tmp._bitField.GetBit(i)){
             res.push_back(i);
         }

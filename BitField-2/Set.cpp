@@ -7,7 +7,7 @@ Set::Set(size_t mp) : _bitField(mp){
 
 Set::Set(const Set& set) : _bitField(set._maxPower){
     _maxPower = set._maxPower;
-    _bitField = BitField(set._bitField);
+    _bitField = set._bitField;
 }
 
 Set::Set(const BitField& bf) : _bitField(bf){
@@ -58,6 +58,8 @@ bool Set::operator!=(const Set& tmp) const{
     return !(tmp._bitField == this->_bitField);
 };
 Set& Set::operator=(const Set& tmp){
+    _maxPower = tmp._maxPower;
+    _bitField = tmp._bitField;
     return *this;
 };
 Set Set::operator+(const Set &tmp){

@@ -43,18 +43,14 @@ BitField& BitField::operator=(const BitField& tmp) {
     return *this;
 }
     
-size_t BitField::GetLength() const {
-    return 0;
-}
+
 void BitField::SetBit(size_t n) {
     if (n >= _sizeBit)
         throw "Bit out of range!";
     _mem[GetMemIndex(n)] |= GetMask(n);
 }
 void BitField::ClrBit(size_t n) {
-    uint16_t mask = GetMask(n);
-    mask = ~mask;
-    _mem[GetMemIndex(n)] &= mask;
+    _mem[GetMemIndex(n)] &= ~GetMask(n);
 }
 uint8_t BitField::GetBit(size_t n) const {
     if (n >= _sizeBit){

@@ -1,3 +1,4 @@
+#pragma once
 #include "BitField.h"
 #include "vector"
 
@@ -30,6 +31,14 @@ class Set{
 
         friend std::istream& operator>>(std::istream istr, Set& set);
         
-        friend std::ostream& operator<<(std::ostream ostr, Set& set);
+        friend std::ostream& operator<<(std::ostream& os, const Set& set){
+            for (int i = 0; i < set._maxPower; i++){
+                if (set._bitField.GetBit(i) == 1){
+                    std::cout<<i<<" ";
+                }
+            }
+            std::cout<<"\n";
+            return os;
+        };
 
 };

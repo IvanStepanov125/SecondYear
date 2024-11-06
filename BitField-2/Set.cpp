@@ -5,13 +5,10 @@ Set::Set(size_t mp) : _bitField(mp){
     _maxPower = mp;
 }
 
-Set::Set(const Set& set) : _bitField(set._maxPower){
-    _maxPower = set._maxPower;
-    _bitField = set._bitField;
+Set::Set(const Set& set) : _bitField(set._bitField), _maxPower(set._maxPower){
 }
 
-Set::Set(const BitField& bf) : _bitField(bf){
-    _maxPower = bf.GetLength();
+Set::Set(const BitField& bf)  : _bitField(bf), _maxPower(bf.GetLength()){
 }
 
 size_t Set::GetMaxPower()const {
@@ -68,10 +65,14 @@ Set Set::operator+(const Set &tmp){
     return res;
 }; //объединение двух множеств
 Set Set::operator+(const uint64_t elem){
-    return *this;
+    Set res(*this);
+    res.InsElem(elem);
+    return res;
 }; //добавление элемента
 Set Set::operator-(const uint64_t elem){
-    return *this;
+    Set res(*this);
+    res.DelElem(elem);
+    return res;
 }; //удаление элемента
 Set Set::operator*(const Set& tmp){
     BitField tmp1(this->_bitField & tmp._bitField);

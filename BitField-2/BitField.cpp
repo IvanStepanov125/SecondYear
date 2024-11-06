@@ -25,12 +25,12 @@ BitField::BitField(const BitField& tmp) {
     _sizeBit = tmp._sizeBit;
     _memSize = tmp._memSize;
     _mem = new uint16_t[_memSize];
-    //std::memcpy(_mem, tmp._mem, _memSize*sizeof(size_t));
-    for (size_t i = 0; i < _memSize; ++i)
-        _mem[i] = tmp._mem[i];
+    std::memcpy(_mem, tmp._mem, _memSize*sizeof(size_t));
+    // for (size_t i = 0; i < _memSize; ++i)
+    //     _mem[i] = tmp._mem[i];
 }
 
-BitField& BitField::operator=(const BitField& tmp) {
+BitField& BitField::operator=(const BitField&& tmp) {
     if (_sizeBit != tmp._sizeBit){
         delete [] _mem;
         _sizeBit = tmp._sizeBit;

@@ -28,7 +28,7 @@ public:
     BitField operator^(const BitField& tmp);
     bool operator==(const BitField& tmp) const;
     BitField operator~();
-
+    BitField& operator=(const BitField&& tmp);
     ~BitField(){
         delete [] _mem;
     }; 

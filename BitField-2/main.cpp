@@ -11,6 +11,6 @@ int main() {
     std::vector res = array.GetPrimary();
 
     for (size_t i = 0; i < res.size(); i ++){
-        std::cout <<res[i] << " ";
+        std::cout << res[i] << " ";
     }
 }

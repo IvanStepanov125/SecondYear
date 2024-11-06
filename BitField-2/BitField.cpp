@@ -1,5 +1,16 @@
 #include "BitField.h"
 
+
+size_t BitField::GetMemIndex(size_t n) const{
+    if (n >= _sizeBit)
+        throw "Bit out of range!";
+    size_t index = n / (8 * sizeof(uint16_t));
+    return index;
+}
+uint16_t BitField::GetMask(size_t n) const {
+    return 1 << (n % 16);
+}
+
 BitField::BitField(size_t len) {
     _sizeBit = len;
     _memSize = (len / (8 * sizeof(uint16_t))) + (len % (8 * sizeof(uint16_t)) != 0);
@@ -16,7 +27,7 @@ BitField::BitField(const BitField& tmp) {
         _mem[i] = tmp._mem[i];
 }
 
-BitField& BitField::operator=(const BitField& tmp){
+BitField& BitField::operator=(const BitField& tmp) {
     if (_sizeBit != tmp._sizeBit){
         delete [] _mem;
         _sizeBit = tmp._sizeBit;
@@ -27,41 +38,27 @@ BitField& BitField::operator=(const BitField& tmp){
         _mem[i] = tmp._mem[i];
     return *this;
 }
-
-uint16_t BitField::GetMask(size_t n) const {
-    return 1 << (n % 16);
+    
+size_t BitField::GetLength() const {
+    return 0;
 }
-
 void BitField::SetBit(size_t n) {
     if (n >= _sizeBit)
         throw "Bit out of range!";
     _mem[GetMemIndex(n)] |= GetMask(n);
 }
-
-size_t BitField::GetMemIndex(size_t n) const {
-    if (n >= _sizeBit)
-        throw "Bit out of range!";
-    size_t index = n / (8 * sizeof(uint16_t));
-    return index;
+void BitField::ClrBit(size_t n) {
+    uint16_t mask = GetMask(n);
+    mask = ~mask;
+    _mem[GetMemIndex(n)] &= mask;
 }
-
 uint8_t BitField::GetBit(size_t n) const {
     if (n >= _sizeBit){
         throw "PSHNH Bit out of range";
     }
     return ((_mem[GetMemIndex(n)] & GetMask(n)) != 0);
 }
-
-void BitField::ClrBit(size_t n){
-    uint16_t mask = GetMask(n);
-    mask = ~mask;
-    _mem[GetMemIndex(n)] &= mask;
-}
-size_t BitField::GetLength() const{
-    return _sizeBit;
-}
-
-BitField BitField::operator|(const BitField& tmp){ //размеры битовых полей могут быть разными
+BitField BitField::operator|(const BitField& tmp) {
     BitField B(*this);
     for (size_t i=0; i < _memSize; i++){
         B._mem[i] |= tmp._mem[i];
@@ -69,15 +66,14 @@ BitField BitField::operator|(const BitField& tmp){ //размеры битовы
     return B;
 }
 
-BitField BitField::operator&(const BitField& tmp){ //размеры битовых полей могут быть разными
+BitField BitField::operator&(const BitField& tmp) {
     BitField B(*this);
     for (size_t i=0; i < _memSize; i++){
         B._mem[i] &= tmp._mem[i];
     }
     return B;
 }
-
-BitField BitField::operator^(const BitField& tmp){ //размеры битовых полей могут быть разными
+BitField BitField::operator^(const BitField& tmp) {
     BitField B(*this);
     for (size_t i=0; i < _memSize; i++){
         B._mem[i] ^= tmp._mem[i];
@@ -85,8 +81,7 @@ BitField BitField::operator^(const BitField& tmp){ //размеры битовы
     return B;
 }
 
-
-bool BitField::operator==(const BitField& tmp){
+bool BitField::operator==(const BitField& tmp) const{
     if(_sizeBit != tmp._sizeBit){
         return false;
     }

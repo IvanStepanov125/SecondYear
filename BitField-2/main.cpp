@@ -1,16 +1,10 @@
-#include <iostream>
-#include "Set.h"
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
 
 
-int main() {
-    BitField mass(26);
-    Set array(mass);
-    for (size_t i = 1; i < 26; i++){
-        array.InsertElem(i);
-    }
-    std::vector res = array.GetPrimary();
 
-    for (size_t i = 0; i < res.size(); i ++){
-        std::cout << res[i] << " ";
-    }
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+
+    return RUN_ALL_TESTS();
 }

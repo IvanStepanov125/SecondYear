@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <stdint.h>
 
@@ -23,7 +24,7 @@ public:
     BitField operator|(const BitField& tmp);
     BitField operator&(const BitField& tmp);
     BitField operator^(const BitField& tmp);
-    bool operator==(const BitField& tmp);
+    bool operator==(const BitField& tmp) const;
     BitField operator~();
 
     ~BitField(){

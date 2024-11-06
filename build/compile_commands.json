@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock -g -o CMakeFiles\\main.dir\\main.cpp.obj -c C:\\Users\\user\\SecondYear\\BeginTask-0\\main.cpp",
+  "file": "C:\\Users\\user\\SecondYear\\BeginTask-0\\main.cpp",
+  "output": "CMakeFiles\\main.dir\\main.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock -g -o CMakeFiles\\main.dir\\tests.cpp.obj -c C:\\Users\\user\\SecondYear\\BeginTask-0\\tests.cpp",
+  "file": "C:\\Users\\user\\SecondYear\\BeginTask-0\\tests.cpp",
+  "output": "CMakeFiles\\main.dir\\tests.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/user/SecondYear/build/_deps/googletest-src/googlemock/include -IC:/Users/user/SecondYear/build/_deps/googletest-src/googlemock -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googlemock\\CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc",
+  "file": "C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc",
+  "output": "_deps\\googletest-build\\googlemock\\CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj"
+},
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googlemock -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googlemock\\CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc",
+  "file": "C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc",
+  "output": "_deps\\googletest-build\\googlemock\\CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj"
+},
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -IC:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -IC:/Users/user/SecondYear/build/_deps/googletest-src/googletest -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googletest\\CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc",
+  "file": "C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc",
+  "output": "_deps\\googletest-build\\googletest\\CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj"
+},
+{
+  "directory": "C:/Users/user/SecondYear/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest/include -isystem C:/Users/user/SecondYear/build/_deps/googletest-src/googletest -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps\\googletest-build\\googletest\\CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc",
+  "file": "C:\\Users\\user\\SecondYear\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc",
+  "output": "_deps\\googletest-build\\googletest\\CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj"
+}
+]

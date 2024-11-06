@@ -30,7 +30,7 @@ BitField::BitField(const BitField& tmp) {
     //     _mem[i] = tmp._mem[i];
 }
 
-BitField& BitField::operator=(const BitField&& tmp) {
+BitField& BitField::operator=(const BitField& tmp) {
     if (_sizeBit != tmp._sizeBit){
         delete [] _mem;
         _sizeBit = tmp._sizeBit;

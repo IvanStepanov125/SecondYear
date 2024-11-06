@@ -64,27 +64,27 @@ uint8_t BitField::GetBit(size_t n) const {
 }
 BitField BitField::operator|(const BitField& tmp) {
     BitField B(*this);
-    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
-    // for (size_t i=0; i < _memSize; i++){
-    //     B._mem[i] |= tmp._mem[i];
-    // }
+    
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] |= tmp._mem[i];
+    }
     return B;
 }
 
 BitField BitField::operator&(const BitField& tmp) {
     BitField B(*this);
-    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
-    // for (size_t i=0; i < _memSize; i++){
-    //     B._mem[i] &= tmp._mem[i];
-    // }
+    
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] &= tmp._mem[i];
+    }
     return B;
 }
 BitField BitField::operator^(const BitField& tmp) {
     BitField B(*this);
-    std::memcpy(B._mem, tmp._mem, _memSize*sizeof(size_t));
-    //for (size_t i=0; i < _memSize; i++){
-    //     B._mem[i] ^= tmp._mem[i];
-    // }
+    
+    for (size_t i=0; i < _memSize; i++){
+        B._mem[i] ^= tmp._mem[i];
+    }
     return B;
 }
 

@@ -49,10 +49,10 @@ std::vector<uint64_t> Set::GetPrimary(){
 }
 
 bool Set::operator==(const Set& tmp) const{
-    return (tmp._bitField == this->_bitField);
+    return _bitField == tmp._bitField;
 };
 bool Set::operator!=(const Set& tmp) const{
-    return !(tmp._bitField == this->_bitField);
+    return (tmp._bitField == _bitField) == 0;
 };
 Set& Set::operator=(const Set& tmp){
     _maxPower = tmp._maxPower;
@@ -60,9 +60,7 @@ Set& Set::operator=(const Set& tmp){
     return *this;
 };
 Set Set::operator+(const Set &tmp){
-    BitField tmp1(this->_bitField | tmp._bitField);
-    Set res(tmp1);
-    return res;
+    return _bitField | tmp._bitField;
 }; //объединение двух множеств
 Set Set::operator+(const uint64_t elem){
     Set res(*this);
@@ -75,12 +73,9 @@ Set Set::operator-(const uint64_t elem){
     return res;
 }; //удаление элемента
 Set Set::operator*(const Set& tmp){
-    BitField tmp1(this->_bitField & tmp._bitField);
-    Set res(tmp1);
-    return res;
+    return _bitField & tmp._bitField;
 };
 
 Set Set::operator~(){
-    Set res(~(this->_bitField));
-    return res;
+    return Set(~_bitField);
 };

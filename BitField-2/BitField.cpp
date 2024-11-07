@@ -42,6 +42,13 @@ BitField& BitField::operator=(const BitField& tmp) {
          _mem[i] = tmp._mem[i];
     return *this;
 }
+
+BitField& BitField::operator=(const BitField&& tmp){
+    _sizeBit = tmp._sizeBit;
+    _memSize = tmp._memSize;
+    _mem = tmp._mem;
+    return *this;
+}
     
 
 void BitField::SetBit(size_t n) {
